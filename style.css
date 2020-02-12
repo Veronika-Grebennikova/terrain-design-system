@@ -74,27 +74,95 @@ svg:not(:root){
 
 main {
     margin: 2rem auto;
-    max-width: 960px;
+    max-width: 35rem;
+}
+
+/***************************************************
+// Colors
+***************************************************/
+html {
+    --color-primary:            #10143f;
+    --color-primary-dark:       #00001b;
+    --color-primary-light:      #3c3a6a;
+
+    --color-secondary:          #BD3A26;
+    --color-secondary-dark:     #860000;
+    --color-secondary-light:    #f66b50;
+
+    --color-accent:             #0068B2;
+    --color-accent-dark:        #003e82;
+    --color-accent-light:       #5595e4;
+
+    --color-gray: #1f2d3d;
+    --color-gray-dark: #000117;
+    --color-gray-light: #e5e9f2;
 }
 
 /* ==========================================================================
  Typography
 ========================================================================== */
+@import url('https://fonts.googleapis.com/css?family=Cabin:700|Raleway:400,400i,800&display=swap');
+
 html {
-    color: #000117;
+    --font-headings: 'Cabin', sans-serif;
+    --font-primary: 'Raleway', sans-serif;
+}
+
+html {
+    color: var(--color-gray-dark);
+    font-family: var(--font-primary);
+    font-size: 18px;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+h4 {
+    margin: 1.5rem 0 .7rem;
+}
+
+.text-featured {
+    font-size: .8rem;
+}
+
 a {
-    color: #315277;
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--color-secondary-dark);
 }
 
 /* ==========================================================================
  Header Component
 ========================================================================== */
 header{
-    background-color: #10143f;
+    background-color: var(--color-primary-dark);
     padding-top: 2rem;
 }
 
@@ -110,7 +178,7 @@ header{
 }
 
 .logo a:active, .logo a:focus {
-    color: #e5e9f2;
+    color: var(--color-accent-light);
     text-decoration: none;
 }
 
@@ -144,20 +212,20 @@ header hr {
 }
 
 .menu-primary a:hover, a:focus {
-    color: #f66b50;
+    color: var(--color-gray-light);
 }
 
 .menu-item-current a{
-    background-color: #00001b;
-    color: #f66b50;
+    background-color: var(--color-primary);
+    color: var(--color-accent-light);
 }
 
 /* ==========================================================================
  Footer Component
 ========================================================================== */
 footer {
-    background-color: #00001b;
-    color: #e5e9f2;
+    background-color: var(--color-primary-dark);
+    color: var(--color-gray-light);
     display: grid;
     font-size: .8rem;
     grid-template-columns: 1fr 1fr;
@@ -165,11 +233,11 @@ footer {
 }
 
 footer a {
-    color: #e5e9f2;
+    color: var(--color-secondary-light);
 }
 
 footer a:hover {
-    color: #5595e4;
+    color: var(--color-accent);
 }
 
 .footer-col-1 {
