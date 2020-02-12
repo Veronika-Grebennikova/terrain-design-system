@@ -74,7 +74,7 @@ svg:not(:root){
 
 main {
     margin: 2rem auto;
-    max-width: 35rem;
+    max-width: 40rem;
 }
 
 /***************************************************
@@ -246,4 +246,13 @@ footer a:hover {
 
 .footer-col-2 {
     text-align: right;
+}
+
+/* ==========================================================================
+ Figure Component
+========================================================================== */
+figure {
+    border: 1px solid var(--color-gray-light);
+    margin: 2rem 0;
+    padding: 2rem;
 }
