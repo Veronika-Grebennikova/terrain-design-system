@@ -72,9 +72,14 @@ svg:not(:root){
 	overflow: hidden;
 }
 
+/***************************************************
+// Colors
+***************************************************/
+
 main {
     margin: 2rem auto;
-    max-width: 40rem;
+    max-width: 42rem;
+    padding: 1rem;
 }
 
 /***************************************************
@@ -101,48 +106,84 @@ html {
 /* ==========================================================================
  Typography
 ========================================================================== */
-@import url('https://fonts.googleapis.com/css?family=Cabin:700|Raleway:400,400i,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,700,700i|Raleway:400,400i,700,700i&display=swap');
 
 html {
     --font-headings: 'Cabin', sans-serif;
     --font-primary: 'Raleway', sans-serif;
-}
+    --ratio: 1.333;
+    --size-xlarge: calc(var(--size-large) * var(--ratio) );
+	--size-large: calc(var(--size-medium) * var(--ratio) );
+    --size-medium: calc(1rem * var(--ratio));
+    --size-small: calc(.65rem * var(--ratio));
+    --size-xsmall: calc(.5rem * var(--ratio));
 
-html {
+    --margin-large: calc(1rem * var(--ratio) * 2);
+    --margin-medium: calc(1rem * var(--ratio) * 1.5);
+    --margin-standard: calc(1rem * var(--ratio));
+    --margin-small: calc(.6rem * var(--ratio));
+
     color: var(--color-gray-dark);
     font-family: var(--font-primary);
     font-size: 18px;
     line-height: 1.5;
-    margin: 0;
-    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-headings);
+    font-weight: 700;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-headings);
-    font-weight: 800;
+    text-transform: uppercase;
+}
+
+h4, h5, h6 {
+    margin: var(--margin-medium) 0 var(--margin-small);
 }
 
 h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: var(--size-xlarge);
+    line-height: 1.2;
+    margin-bottom: var(--margin-large);
 }
 
 h2 {
-    font-size: 2rem;
-    margin: 1rem 0;
+    font-size: var(--size-large);
+    margin: var(--margin-large) 0;
+}
+
+h2:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    width: 80px; /* Change this to whatever width you want. */
+    padding-top: 5px; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid var(--color-secondary-dark); /* This creates the border. Replace black with whatever color you want. */
 }
 
 h3 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
+    font-size: var(--size-medium);
+    margin: var(--margin-medium) 0 var(--margin-standard);
 }
 
-h4 {
-    margin: 1.5rem 0 .7rem;
+h5 {
+    font-weight: 500;
 }
 
 .text-featured {
-    font-size: .8rem;
+    font-size: var(--size-small);
+    font-weight: 800;
+    max-width: 70%;
+}
+
+.text-tetriary {
+    font-size: var(--size-small);
+    margin-right: 55%;
+}
+
+strong {
+    font-family: var(--font-headings);
+    font-weight: 500;
 }
 
 a {
@@ -158,6 +199,50 @@ a:active {
     color: var(--color-secondary-dark);
 }
 
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    color: var(--color-secondary-dark);
+    content: "\25AA";
+    display: inline-block;
+    margin-left: -1rem;
+    width: var(--size-medium);
+}
+
+ol {
+    counter-reset: li;
+    list-style: none;
+}
+
+ol li::before{
+    color: var(--color-secondary-dark);
+    content: counter(li);
+    direction: rtl;
+    display: inline-block;
+    margin-left: -1.5rem;
+    margin-right: .5rem;
+    text-align: right;
+    width: 1rem;
+}
+
+ol li {
+    counter-increment: li;
+}
+
+ol ol li::before {
+    content: "-"; /* I wanted to use lower-roman but don't know how to do that and color a number */
+}
+
+blockquote {
+    border-left: 6px solid var(--color-secondary-dark);
+    font-family: var(--font-headings);
+    font-weight: 700;
+    margin: 0 15% 0 15%;
+    padding-left: var(--size-medium);
+}
+
 /* ==========================================================================
  Header Component
 ========================================================================== */
@@ -167,11 +252,16 @@ header{
 }
 
 .logo {
+    font-family: var(--font-headings);
     font-size: 2.5rem;
     margin: 2rem 0 3rem;
     text-align: center;
 }
 
+.logo img {
+    margin: 0 auto var(--size-medium);
+    width: 100px;
+}
 .logo a {
     color: #fff;
     text-decoration: none;
@@ -182,30 +272,33 @@ header{
     text-decoration: none;
 }
 
-header hr {
-    margin: 0;
-}
 
 /** Menu block **/
 
 .menu-primary {
+    border-top: 1px solid var(--color-gray-light);
     margin: 0 auto;
     text-align: center;
 }
 
 .menu-primary ul {
-    margin: 0;
+    margin: 0; /** if I delete this line, the margin appears on the left **/
     padding: 0;
 }    
 
 .menu-primary li {
     display: inline-block;
-    text-align: center;
 }
 
+.menu-primary ul li::before {
+    content: "";
+    margin: 0;
+}
 .menu-primary a {
     color: #fff;
     display: block;
+    font-size: var(--size-xsmall);
+    letter-spacing: .1em;
     padding: 1rem 2rem;
     text-decoration: none;
     text-transform: uppercase;
@@ -213,11 +306,12 @@ header hr {
 
 .menu-primary a:hover, a:focus {
     color: var(--color-gray-light);
+    text-decoration: underline;
 }
 
 .menu-item-current a{
     background-color: var(--color-primary);
-    color: var(--color-accent-light);
+    text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -240,10 +334,6 @@ footer a:hover {
     color: var(--color-accent);
 }
 
-.footer-col-1 {
-
-}
-
 .footer-col-2 {
     text-align: right;
 }
@@ -255,4 +345,63 @@ figure {
     border: 1px solid var(--color-gray-light);
     margin: 2rem 0;
     padding: 2rem;
+}
+
+code {
+    background-color: var(--color-gray-light);
+    display: block;
+    padding: 2rem;
+}
+
+.example-h1 {
+    font-size: var(--size-xlarge);
+    font-family: var(--font-headings);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--margin-large);
+    text-transform: uppercase;
+}
+
+.example-h2 {
+    font-family: var(--font-headings);
+    font-size: var(--size-large);
+    font-weight: 700;
+    margin: var(--margin-large) 0 var(--margin-standard);
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.example-h2:after {
+    border-bottom: 3px solid var(--color-secondary-dark); /* This creates the border. Replace black with whatever color you want. */
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    padding-top: 5px; /* This creates some space between the element and the border. */
+    width: 80px; /* Change this to whatever width you want. */
+}
+
+.example-h3 {
+    font-family: var(--font-headings);
+    font-size: var(--size-medium);
+    font-weight: 700;
+    margin: var(--margin-large) 0 var(--margin-standard);
+    text-transform: uppercase;
+}
+
+.example-h4 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    margin: var(--margin-medium) 0 var(--margin-small);
+    text-transform: uppercase;
+}
+
+.example-h5 {
+    font-family: var(--font-headings);
+    font-weight: 500;
+    margin: var(--margin-medium) 0 var(--margin-small);
+    text-transform: uppercase;
+}
+
+.example-h6 {
+    margin: var(--margin-medium) 0 var(--margin-small);
+    text-transform: uppercase;
 }
