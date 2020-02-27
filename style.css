@@ -173,12 +173,12 @@ h5 {
 .text-featured {
     font-size: var(--size-small);
     font-weight: 800;
-    max-width: 70%;
+    max-width: 30rem;
 }
 
 .text-tetriary {
     font-size: var(--size-small);
-    margin-right: 55%;
+    max-width: 20rem;
 }
 
 strong {
@@ -190,13 +190,22 @@ a {
     color: var(--color-accent);
     text-decoration: none;
 }
+a:visited {
+    color: var(--color-secondary);
+}
 
-a:hover, a:focus {
+a:hover {
+    color: var(--color-secondary-dark);
     text-decoration: underline;
+}
+
+a:focus {
+    color: var(--color-secondary-dark);
 }
 
 a:active {
     color: var(--color-secondary-dark);
+    text-decoration: underline;
 }
 
 ul {
@@ -232,14 +241,14 @@ ol li {
 }
 
 ol ol li::before {
-    content: "-"; /* I wanted to use lower-roman but don't know how to do that and color a number */
+    content: counter(li, upper-roman); /* I wanted to use lower-roman but don't know how to do that and color a number */
 }
 
 blockquote {
     border-left: 6px solid var(--color-secondary-dark);
     font-family: var(--font-headings);
     font-weight: 700;
-    margin: 0 15% 0 15%;
+    max-width: 25rem;
     padding-left: var(--size-medium);
 }
 
@@ -260,7 +269,7 @@ header{
 
 .logo img {
     margin: 0 auto var(--size-medium);
-    width: 100px;
+    max-width: 100px;
 }
 .logo a {
     color: #fff;
@@ -291,6 +300,7 @@ header{
 }
 
 .menu-primary ul li::before {
+    display: none;
     content: "";
     margin: 0;
 }
@@ -334,7 +344,7 @@ footer a:hover {
     color: var(--color-accent);
 }
 
-.footer-col-2 {
+.footer-copyright {
     text-align: right;
 }
 
@@ -353,55 +363,128 @@ code {
     padding: 2rem;
 }
 
-.example-h1 {
-    font-size: var(--size-xlarge);
-    font-family: var(--font-headings);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: var(--margin-large);
-    text-transform: uppercase;
-}
+/* ==========================================================================
+ Button-link Components
+========================================================================== */
 
-.example-h2 {
-    font-family: var(--font-headings);
-    font-size: var(--size-large);
-    font-weight: 700;
-    margin: var(--margin-large) 0 var(--margin-standard);
-    padding-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.example-h2:after {
-    border-bottom: 3px solid var(--color-secondary-dark); /* This creates the border. Replace black with whatever color you want. */
-    content: ""; /* This is necessary for the pseudo element to work. */ 
-    display: block; /* This will put the pseudo element on its own line. */
-    padding-top: 5px; /* This creates some space between the element and the border. */
-    width: 80px; /* Change this to whatever width you want. */
-}
-
-.example-h3 {
-    font-family: var(--font-headings);
+.hero-button {
+    background-color: var(--color-secondary);
+    color: white;
     font-size: var(--size-medium);
-    font-weight: 700;
-    margin: var(--margin-large) 0 var(--margin-standard);
-    text-transform: uppercase;
+    padding: .75rem;
 }
 
-.example-h4 {
+.hero-button:visited {
+    color: white;
+}
+
+.hero-button:hover {
+    background-color: var(--color-secondary-dark);
+    color: white;
+    text-decoration: none;
+}
+
+.hero-button:focus {
+    background-color: var(--color-secondary-dark);
+    box-shadow: 0px 0px 5px var(--color-secondary-dark);
+    outline: none;
+    text-decoration: none;
+}
+
+.hero-button:active {
+    background-color: var(--color-secondary-light);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.normal-button {
+    background-color: var(--color-accent);
+    color: white;
+    font-size: var(--size-small);
+    padding: .75rem;
+}
+
+.normal-button:visited {
+    color: white;
+}
+
+.normal-button:hover {
+    background-color: var(--color-accent-dark);
+    color: white;
+    text-decoration: none;
+}    
+
+.normal-button:focus {
+    background-color: var(--color-accent-dark);
+    box-shadow: 0px 0px 5px var(--color-primary);
+    outline: none;
+    text-decoration: none;
+}
+
+.normal-button:active {
+    background-color: var(--color-accent-light);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.tertiary-button {
+    background-color: var(--color-gray-light);
+    color: var(--color-gray-dark);
+    font-size: var(--size-xsmall);
+    padding: .75rem;
+}
+
+.tertiary-button:visited {
+    color: var(--color-gray-dark);
+}
+
+.tertiary-button:hover {
+    background-color: var(--color-gray);
+    color: white;
+    text-decoration: none;
+}
+
+.tertiary-button:focus {
+    background-color: var(--color-gray);
+    box-shadow: 0px 0px 5px var(--color-gray-dark);
+    color: white;
+    outline: none;
+    text-decoration: none;
+}
+
+.normal-button:active {
+    background-color: var(--color-gray-light);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+ Accordion Component
+========================================================================== */
+summary {
+    background-color: var(--color-primary);
+    color: white;
     font-family: var(--font-headings);
-    font-weight: 700;
-    margin: var(--margin-medium) 0 var(--margin-small);
-    text-transform: uppercase;
+    margin-bottom: .5rem;
+    padding: .5rem;
 }
 
-.example-h5 {
-    font-family: var(--font-headings);
-    font-weight: 500;
-    margin: var(--margin-medium) 0 var(--margin-small);
-    text-transform: uppercase;
+summary:hover {
+    background-color: var(--color-primary-light);
 }
 
-.example-h6 {
-    margin: var(--margin-medium) 0 var(--margin-small);
-    text-transform: uppercase;
+summary:focus{
+    outline: none;
+}
+
+details[open] summary {
+    background-color: var(--color-secondary-dark);
+    margin-bottom: 0;
+    outline: none;
+}
+
+details div {
+    border: 1px solid var(--color-secondary-dark);
+    margin-bottom: 1rem;
+    padding: 1rem;
 }
