@@ -60,6 +60,13 @@
                 </div>
             </details>
         </figure>
+        <h2>Modal Dialog</h2>
+        <button id="open-modal" type="button">Open Modal</button>
+        <dialog id="dialog-demo">
+            <span class="close">&times;</span>
+            <h3>The Nobel Prize in Literature 2019</h3>
+            <p>The Nobel Prize in Literature 2019 was awarded to Peter Handke "for an influential work that with linguistic ingenuity has explored the periphery and the specificity of human experience."</p>
+        </dialog>
     </main>
     <footer>
         <div class="footer-contact">
@@ -70,5 +77,29 @@
             <p>&copy; Terrain Design System, 2020</p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+        
+            const modal = document.querySelector('dialog');
+            const open = document.getElementById('open-modal');
+        
+            open.addEventListener('click', () => {
+                modal.showModal();
+            });
+        
+            modal.addEventListener('click', event => {
+                if (event.target === modal) {
+                    modal.close('cancelled');
+                }
+            });
+            
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+        
+        
 </body>
 </html>

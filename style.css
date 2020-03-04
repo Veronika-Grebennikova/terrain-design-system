@@ -488,3 +488,50 @@ details div {
     margin-bottom: 1rem;
     padding: 1rem;
 }
+
+/* ==========================================================================
+ Modal Component
+========================================================================== */
+dialog {
+    animation: slide-in-down-grow .6s ease-out;
+    border: 0;
+    border-top: solid 50px var(--color-secondary-dark);
+    max-width: 40%;
+    padding-top: 0;
+}
+
+.close {
+    color: white;
+    margin-top: -60px;
+    float: right;
+    font-size: var(--size-xlarge);
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+dialog::backdrop {
+	background-color: black;
+	opacity: .7;
+}
+
+@keyframes slide-in-down-grow {
+	
+	0% {
+		transform: translateY(20rem) scale(1);
+	} 
+	
+	60% {
+		transform: translateY(1rem) scale(1.1);
+	}
+	
+	100% {
+		transform: translateY(0) scale(1);
+	}
+	
+}
