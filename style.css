@@ -386,7 +386,7 @@ code {
 
 .hero-button:focus {
     background-color: var(--color-secondary-dark);
-    box-shadow: 0px 0px 5px var(--color-secondary-dark);
+    box-shadow: 0 0 5px var(--color-secondary-dark);
     outline: none;
     text-decoration: none;
 }
@@ -398,7 +398,7 @@ code {
 }
 
 .normal-button {
-    background-color: var(--color-accent);
+    background-color: var(--color-accent-dark);
     color: white;
     font-size: var(--size-small);
     padding: .75rem;
@@ -409,13 +409,13 @@ code {
 }
 
 .normal-button:hover {
-    background-color: var(--color-accent-dark);
+    background-color: var(--color-accent);
     color: white;
     text-decoration: none;
 }    
 
 .normal-button:focus {
-    background-color: var(--color-accent-dark);
+    background-color: var(--color-accent);
     box-shadow: 0px 0px 5px var(--color-primary);
     outline: none;
     text-decoration: none;
@@ -474,6 +474,7 @@ summary:hover {
 }
 
 summary:focus{
+    background-color: var(--color-primary-light);
     outline: none;
 }
 
@@ -498,14 +499,16 @@ dialog {
     border-top: solid 50px var(--color-secondary-dark);
     max-width: 40%;
     padding-top: 0;
+    position: relative;
 }
 
 .close {
     color: white;
-    margin-top: -60px;
-    float: right;
     font-size: var(--size-xlarge);
     font-weight: bold;
+    position: absolute;
+    right: 1rem;
+    top: -3.3rem;
   }
   
   .close:hover,
@@ -534,4 +537,108 @@ dialog::backdrop {
 		transform: translateY(0) scale(1);
 	}
 	
+}
+
+/* ==========================================================================
+ Form Components
+========================================================================== */
+form {
+    border: solid 1px var(--color-gray-light);
+    padding: 1rem;
+}
+
+legend {
+    color: var(--color-gray);
+}
+
+label {
+    display: inline-block;
+    margin: 1rem 0 .3rem;
+}
+
+form p {
+    font-size: var(--size-small);
+    margin-top: .5rem;
+}
+
+input, select {
+    display: block;
+    font-family: var(--font-primary);
+    height: 1.5rem;
+    min-width: 15rem;
+    padding: .5rem;
+}
+
+select {
+    border: .5px solid;
+    border-radius: 0;
+}
+
+.message {
+    display: inline-block;
+    margin-left: .5rem;
+}
+
+.message-alert {
+    color: var(--color-secondary-dark);
+}
+
+[error] {
+    border: .5px solid var(--color-secondary-dark);
+    box-shadow: 0 0 5px var(--color-secondary-dark);
+}
+
+.message-succsess {
+    color: darkgreen;
+}
+
+.input-succsess {
+    border: .5px solid darkgreen;
+    box-shadow: 0 0 5px darkgreen;
+}
+
+textarea {
+    font-family: var(--font-primary);
+    min-height: 5rem;
+    min-width: 25rem;
+    padding: .5rem;
+}
+
+form button, [type="submit"] {
+    background-color: var(--color-accent-dark);
+    border: 0;
+    border-radius: 0;
+    color: white;
+    font-family: var(--font-primary);
+    font-size: var(--size-small);
+    margin-top: 2rem;
+    padding: .7rem 1.5rem;
+}
+
+form button:visited, [type="submit"]:visited {
+    color: white;
+}
+
+form button:hover, [type="submit"]:hover {
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+}    
+
+form button:focus, [type="submit"]:focus {
+    background-color: var(--color-accent);
+    box-shadow: 0px 0px 5px var(--color-primary);
+    outline: none;
+    text-decoration: none;
+}
+
+form button:active, [type="submit"]:active {
+    background-color: var(--color-accent-light);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+[disabled] {
+    background-color: var(--color-gray-light);
+    border: none;
 }

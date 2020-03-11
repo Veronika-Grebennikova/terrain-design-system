@@ -61,12 +61,52 @@
             </details>
         </figure>
         <h2>Modal Dialog</h2>
-        <button id="open-modal" type="button">Open Modal</button>
-        <dialog id="dialog-demo">
-            <span class="close">&times;</span>
-            <h3>The Nobel Prize in Literature 2019</h3>
-            <p>The Nobel Prize in Literature 2019 was awarded to Peter Handke "for an influential work that with linguistic ingenuity has explored the periphery and the specificity of human experience."</p>
-        </dialog>
+        <figure>
+            <button id="open-modal" type="button">Open Modal</button>
+            <dialog id="dialog-demo">
+                <span class="close">&times;</span>
+                <h3>The Nobel Prize in Literature 2019</h3>
+                <p>The Nobel Prize in Literature 2019 was awarded to Peter Handke "for an influential work that with linguistic ingenuity has explored the periphery and the specificity of human experience."</p>
+            </dialog>
+        </figure>
+        <h2>Form Inputs</h2>
+        <figure>
+            <form>
+                <h3>Form title (not necessary though)</h3>
+                <legend>In case you would need some explanation for a form, you could put it here. You are welcome!</legend>
+                
+                <label for="name">Name</label>
+                <input id="name" type="text">
+                <p>Microcopy</p>
+
+                <label for="last-name">Last Name</label> <p class="message-alert message">Alert message</p>
+                <input id="last-name" type="text" error>
+                <p>Microcopy</p>
+                
+                <label for="email">E-mail</label> <p class="message-succsess message">Success message</p>
+                <input id="email" type="email" placeholder="example@havefun.com" class="input-succsess">
+                <p>Microcopy</p>
+                
+                <label for="phone">Phone</label>
+                <input id="phone" type="tel" disabled>
+                <p>Microcopy</p>
+
+                <label>What Months Of The Year Have 28 Days?</label>
+                <select>
+                    <option disabled selected hidden>Your answer</option>
+                    <option>February</option>
+                    <option>All twelve month</option>
+                </select>
+
+                <label for="comments">Comments</label>
+                <textarea id="comments" placeholder="Some Placeholder Text"></textarea>
+                <p>Microcopy</p>
+
+                <h3>Submit / Button</h3>
+
+                <button>Submit form</button>
+            </form>
+        </figure>
     </main>
     <footer>
         <div class="footer-contact">
