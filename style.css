@@ -73,13 +73,19 @@ svg:not(:root){
 }
 
 /***************************************************
-// Colors
+// Main
 ***************************************************/
 
 main {
     margin: 2rem auto;
     max-width: 42rem;
     padding: 1rem;
+}
+
+@media (min-width: 1096px) {
+    main {
+        
+    }
 }
 
 /***************************************************
@@ -125,8 +131,16 @@ html {
 
     color: var(--color-gray-dark);
     font-family: var(--font-primary);
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
+}
+
+@media (min-width: 600px) {
+    html {
+        --ratio: 1.5;
+
+        font-size: 18px;
+    }
 }
 
 h1, h2, h3, h4 {
@@ -143,7 +157,7 @@ h4, h5, h6 {
 }
 
 h1 {
-    font-size: var(--size-xlarge);
+    font-size: var(--size-large);
     line-height: 1.2;
     margin-bottom: var(--margin-large);
 }
@@ -241,7 +255,7 @@ ol li {
 }
 
 ol ol li::before {
-    content: counter(li, upper-roman); /* I wanted to use lower-roman but don't know how to do that and color a number */
+    content: counter(li, upper-roman); 
 }
 
 blockquote {
@@ -262,7 +276,7 @@ header{
 
 .logo {
     font-family: var(--font-headings);
-    font-size: 2.5rem;
+    font-size: calc(1.3rem * var(--ratio));
     margin: 2rem 0 3rem;
     text-align: center;
 }
@@ -283,46 +297,94 @@ header{
 
 
 /** Menu block **/
-
 .menu-primary {
+    background-color: var(--color-primary-dark);
     border-top: 1px solid var(--color-gray-light);
     margin: 0 auto;
     text-align: center;
 }
 
 .menu-primary ul {
-    margin: 0; /** if I delete this line, the margin appears on the left **/
+    margin: 0;
     padding: 0;
-}    
-
-.menu-primary li {
-    display: inline-block;
+    text-align: center;
 }
 
 .menu-primary ul li::before {
     display: none;
-    content: "";
-    margin: 0;
 }
+
+.menu-primary li {
+    border-bottom: 1px solid white;
+}
+
+.menu-primary li:last-of-type {
+    border-bottom: 0;
+}
+
 .menu-primary a {
-    color: #fff;
     display: block;
-    font-size: var(--size-xsmall);
-    letter-spacing: .1em;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    text-transform: uppercase;
+    padding: 1rem 0;
 }
 
-.menu-primary a:hover, a:focus {
-    color: var(--color-gray-light);
+.menu-primary a:visited {
+    color: white;
+}
+
+.menu-item-current a {
+    background-color: var(--color-secondary-dark);
+}
+
+@media (min-width: 600px){
+
+    .menu-primary li {
+        border: 0;
+        display: inline-block;
+        padding: 0;
+    }
+
+    .menu-primary a {
+        color: #fff;
+        display: block;
+        font-size: var(--size-xsmall);
+        letter-spacing: .1em;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .menu-primary a:hover, a:focus {
+        color: var(--color-gray-light);
+        text-decoration: underline;
+    }
+
+    .menu-item-current a{
+        background-color: var(--color-primary);
+        text-decoration: underline;
+    }
+}
+
+/* ==========================================================================
+ Secondary Menu Component
+========================================================================== */
+.menu-secondary ul li::before {
+    display: none;
+}
+
+.menu-secondary-item-current, .menu-secondary-item-current:visited {
+    color: var(--color-accent-dark);
     text-decoration: underline;
 }
 
-.menu-item-current a{
-    background-color: var(--color-primary);
-    text-decoration: underline;
+.dropdown-content {
+    display: none;
 }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 
 /* ==========================================================================
  Footer Component
