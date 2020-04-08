@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Instrumental Design System | Components</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+ <!--   <header>
+       <div class="logo"><a href="index.html"><img src="img/TAB_white.png" alt="Tab Analytics logo">Terrain Design System</a></div>
+        <nav class="menu-primary">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="style.html">Style</a></li>
+                <li class="menu-item-current"><a href="components.html">Components</a></li>
+                <li><a href="layouts.html">Layout</a></li>
+
+            </ul>
+        </nav>
+    </header>
+-->    
+    <div class="hero-block">
+        <h1>COVID-19 Alert!</h1>
+        <p class="text-featured-hero-section">Women age 30-59 are most likely to carry CORONAVIRUS without symptoms! Best course of action is to quarantine them away from men and children! The local wineries are the designated local quarantine centers. Send wimen immediately.</p>
+        <p class="text-featured-hero-section"><em>Note:</em> their phones will be confiscated on arrival to prevent mass hysteria. No contact for 14 days quarantine period.</p>
+        <a href="index.html" class="hero-button">Send wimen immediately!</a>
+    </div>
+    <main>
+               
+    </main>
+    <footer>
+        <div class="footer-contact">
+            <p>Created by Veronika Grebennikova | UX/UI Designer</p>
+            <p><a href="https://veronikagrebennikova.com/">Portfolio</a> | <a href="https://www.linkedin.com/in/veronika-grebennikova?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bz9jw3aiCSF2NIn4lBomy%2Bg%3D%3D">LinkedIn</a> | <a href="https://www.facebook.com/Design-by-Veronika-593171217834319/">Facebook</a></p>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; Terrain Design System, 2020</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+        
+            const modal = document.querySelector('dialog');
+            const open = document.getElementById('open-modal');
+        
+            open.addEventListener('click', () => {
+                modal.showModal();
+            });
+        
+            modal.addEventListener('click', event => {
+                if (event.target === modal) {
+                    modal.close('cancelled');
+                }
+            });
+            
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+        
+        
+</body>
+</html>

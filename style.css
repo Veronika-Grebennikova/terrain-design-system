@@ -185,9 +185,19 @@ h5 {
 }
 
 .text-featured {
-    font-size: var(--size-small);
+    font-size: var(--size-medium);
     font-weight: 800;
     max-width: 30rem;
+}
+
+.text-featured-hero-section {
+    color: white;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.text-featured-hero-section:last-of-type {
+    margin-bottom: 3rem;
 }
 
 .text-tetriary {
@@ -432,8 +442,13 @@ code {
 .hero-button {
     background-color: var(--color-secondary);
     color: white;
-    font-size: var(--size-medium);
-    padding: .75rem;
+    padding: .75rem 1rem;
+}
+
+@media (min-width: 600px) {
+    .hero-button {
+        font-size: var(--size-medium);
+    }
 }
 
 .hero-button:visited {
@@ -568,6 +583,7 @@ dialog {
     color: white;
     font-size: var(--size-xlarge);
     font-weight: bold;
+    line-height: 1;
     position: absolute;
     right: 1rem;
     top: -3.3rem;
@@ -703,4 +719,108 @@ form button:active, [type="submit"]:active {
 [disabled] {
     background-color: var(--color-gray-light);
     border: none;
+}
+
+/* ==========================================================================
+ Notification Components
+========================================================================== */
+.notification {
+    align-items: stretch;
+    box-shadow: 5px 5px 5px var(--color-gray-light);
+    display: flex;
+    margin: 1rem 0;
+}
+
+.notification-icon {
+    padding: .9rem;
+    width: 70px;
+}
+
+.notification-content {
+    padding: 1rem;
+}
+.notification-content h2 {
+    font-size: var(--size-medium);
+    margin: 0 0 1rem;
+}
+
+.error-icon {
+    background: url(img/error.svg) no-repeat, var(--color-secondary);
+    background-position: 50% 1rem;
+    background-size: 40px;
+}
+
+.warning-icon {
+    background: url(img/warning.svg) no-repeat, var(--color-secondary-light);
+    background-position: 50% 1rem;
+    background-size: 40px;
+}
+
+.neutral-icon {
+    background: url(img/information.svg) no-repeat, var(--color-primary-light);
+    background-position: 50% 1rem;
+    background-size: 40px;
+}
+
+.success-icon {
+    background: url(img/success.svg) no-repeat, green;
+    background-position: 50% 1rem;
+    background-size: 40px;
+}
+
+.notification-control {
+    margin-left: auto;
+    padding-right: .5rem;
+}
+.notification-close {
+    color: var(--color-gray-light);
+    display: inline-block;
+    font-size: var(--size-large);
+    line-height: 1;
+    margin: 0 auto;
+    text-align: right;
+    padding: .5rem;
+}
+
+/* ==========================================================================
+ Hero Components
+========================================================================== */
+
+.hero-block {
+    align-items: flex-start;
+    background: url(img/hero-image-mobile.jpg) no-repeat;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    padding: 10%;
+}
+.text-featured-hero-section {
+    color: white;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.text-featured-hero-section:last-of-type {
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 930px) {
+    .hero-block {
+        background: url(img/hero-image.jpg) no-repeat;
+        background-position: 50%;
+        padding: 0 7% 0 45%;
+    }
+    .text-featured-hero-section {
+        font-size: var(--size-medium);
+    }
+    
+}
+@media (min-width: 1800px) {
+    .hero-block {
+        padding: 0 7% 0 50%;
+    }
+    
 }
